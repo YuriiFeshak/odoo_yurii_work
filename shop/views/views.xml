@@ -17,7 +17,7 @@
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="shop.action_window">
-      <field name="name">shop window</field>
+      <field name="name">вікно магазину</field>
       <field name="res_model">shop.shop</field>
       <field name="view_mode">tree,form</field>
     </record>
@@ -41,7 +41,7 @@
 
     <!-- Top menu item -->
 
-    <menuitem name="shop" id="shop.menu_root"/>
+    <menuitem name="Магазин" id="shop.menu_root"/>
 
     <!-- menu categories -->
 
