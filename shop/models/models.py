@@ -21,3 +21,8 @@ class shop(models.Model):
                                ('availabe2', 'Під замовлення')],
                                 string = "Наявність")
 
+class category_product(models.Model):
+    _name = 'category.product'
+
+    numb  = fields.Char(string="Назва")
+    numb1 = fields.Char(string="Опис")
