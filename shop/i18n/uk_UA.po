@@ -1,0 +1,128 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* shop
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-16 11:28+0000\n"
+"PO-Revision-Date: 2021-10-16 11:28+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: shop
+#: model:ir.model.fields,field_description:shop.field_shop_shop__availability
+msgid "Availability"
+msgstr "Наявність"
+
+#. module: shop
+#: model:ir.ui.menu,name:shop.menu_1
+msgid "Category product"
+msgstr "Категорія продуктів"
+
+#. module: shop
+#: model:ir.model.fields,field_description:shop.field_category_product__create_uid
+#: model:ir.model.fields,field_description:shop.field_shop_shop__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: shop
+#: model:ir.model.fields,field_description:shop.field_category_product__create_date
+#: model:ir.model.fields,field_description:shop.field_shop_shop__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: shop
+#: model:ir.model.fields,field_description:shop.field_category_product__numb1
+msgid "Description"
+msgstr "Опис"
+
+#. module: shop
+#: model:ir.model.fields,field_description:shop.field_category_product__display_name
+#: model:ir.model.fields,field_description:shop.field_shop_shop__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: shop
+#: model:ir.model.fields,field_description:shop.field_category_product__id
+#: model:ir.model.fields,field_description:shop.field_shop_shop__id
+msgid "ID"
+msgstr ""
+
+#. module: shop
+#: model:ir.model.fields.selection,name:shop.selection__shop_shop__availability__availabe_1
+msgid "In stock"
+msgstr "На складі"
+
+#. module: shop
+#: model:ir.model.fields,field_description:shop.field_category_product____last_update
+#: model:ir.model.fields,field_description:shop.field_shop_shop____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: shop
+#: model:ir.model.fields,field_description:shop.field_category_product__write_uid
+#: model:ir.model.fields,field_description:shop.field_shop_shop__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: shop
+#: model:ir.model.fields,field_description:shop.field_category_product__write_date
+#: model:ir.model.fields,field_description:shop.field_shop_shop__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: shop
+#: model:ir.model.fields,field_description:shop.field_category_product__numb
+msgid "Name"
+msgstr "Назва"
+
+#. module: shop
+#: model:ir.model.fields,field_description:shop.field_shop_shop__number
+msgid "Number"
+msgstr "Номер"
+
+#. module: shop
+#: model:ir.ui.menu,name:shop.menu_root
+msgid "Shop"
+msgstr "Магазин"
+
+#. module: shop
+#: model:ir.model.constraint,message:shop.constraint_shop_shop_number_unique
+msgid "The generate number must be unique, try again!"
+msgstr "Згенероване число не унікальне, повтори спробу"
+
+#. module: shop
+#: model:ir.model.fields.selection,name:shop.selection__shop_shop__availability__availabe_2
+msgid "Under the order"
+msgstr "На замовлення"
+
+#. module: shop
+#: model:ir.actions.act_window,name:shop.category_product_action
+msgid "category product"
+msgstr "категорія продуктів"
+
+#. module: shop
+#: model:ir.model,name:shop.model_category_product
+msgid "category.product"
+msgstr ""
+
+#. module: shop
+#: model:ir.actions.server,name:shop.action_server
+msgid "shop server"
+msgstr ""
+
+#. module: shop
+#: model:ir.actions.act_window,name:shop.action_window
+msgid "shop window"
+msgstr "вікно магазину"
+
+#. module: shop
+#: model:ir.model,name:shop.model_shop_shop
+msgid "shop.shop"
+msgstr ""

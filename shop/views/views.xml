@@ -13,8 +13,8 @@
       </field>
     </record>
 
-    <record model="ir.ui.view" id="shop.категорія_продуктів">
-      <field name="name">shop категорія продуктів</field>
+    <record model="ir.ui.view" id="shop.category_product">
+      <field name="name">category product</field>
       <field name="model">category.product</field>
       <field name="arch" type="xml">
         <tree editable="top" default_order="id desc">
@@ -29,14 +29,13 @@
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="shop.action_window">
-      <field name="name">Вікно магазину</field>
+      <field name="name">shop window</field>
       <field name="res_model">shop.shop</field>
       <field name="view_mode">tree,form</field>
     </record>
 
-    <record model="ir.actions.act_window" id="category_action">
-      <field name="name">Категорія продуктів</field>
-      <field name="type">ir.actions.act_window</field>
+    <record model="ir.actions.act_window" id="shop.category_product_action">
+      <field name="name">category product</field>
       <field name="res_model">category.product</field>
       <field name="view_mode">tree,form</field>
     </record>
@@ -59,17 +58,10 @@
 
     <!-- Top menu item -->
 
-    <menuitem name="Магазин" id="shop.menu_root" action="shop.action_window"/>
+    <menuitem name="Shop" id="shop.menu_root" action="shop.action_window"/>
     <!-- menu categories -->
 
-    <menuitem name="Категорія продуктів" id="shop.menu_1" parent="shop.menu_root" action="category_action"/>/>
-<!--    <menuitem name="Menu 2" id="shop.menu_2" parent="shop.menu_root"/>-->
-    <!-- actions -->
+    <menuitem name="Category product" id="shop.menu_1" parent="shop.menu_root" action="shop.category_product_action"/>
 
-
-<!--    <menuitem name="Server to list" id="shop" parent="shop.menu_2"-->
-<!--              action="shop.action_server"/>-->
-<!--    <menuitem name="Категорія продуктів" id="shop.menu_3_list" parent="shop.menu_1"-->
-<!--              action="category_action"/>-->
   </data>
 </odoo>
