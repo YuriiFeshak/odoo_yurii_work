@@ -13,13 +13,13 @@
       </field>
     </record>
 
-    <record model="ir.ui.view" id="shop.category_product">
-      <field name="name">category product</field>
-      <field name="model">category.product</field>
+    <record model="ir.ui.view" id="shop.category_products">
+      <field name="name">category products</field>
+      <field name="model">category.products</field>
       <field name="arch" type="xml">
         <tree editable="top" default_order="id desc">
-          <field name="numb"/>
-          <field name="numb1"/>
+          <field name="name_products"/>
+          <field name="products_description"/>
         </tree>
       </field>
     </record>
@@ -34,9 +34,9 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <record model="ir.actions.act_window" id="shop.category_product_action">
-      <field name="name">category product</field>
-      <field name="res_model">category.product</field>
+    <record model="ir.actions.act_window" id="shop.category_products_action">
+      <field name="name">category products</field>
+      <field name="res_model">category.products</field>
       <field name="view_mode">tree,form</field>
     </record>
 
@@ -61,7 +61,7 @@
     <menuitem name="Shop" id="shop.menu_root" action="shop.action_window"/>
     <!-- menu categories -->
 
-    <menuitem name="Category product" id="shop.menu_1" parent="shop.menu_root" action="shop.category_product_action"/>
+    <menuitem name="Category products" id="shop.menu_1" parent="shop.menu_root" action="shop.category_products_action"/>
 
   </data>
 </odoo>

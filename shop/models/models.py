@@ -14,15 +14,16 @@ class shop(models.Model):
         range_end = (10**13)-1
         return randint(range_start, range_end)
     # поля
-    number = fields.Char(default=_generate_number,string = "Number", required=True, readonly=True)
+    number = fields.Char(default=_generate_number, string="Number", required=True, readonly=True)
     # перевірка якщо не унікально згенероване число
     _sql_constraints = [('number_unique', 'unique(number)', 'The generate number must be unique, try again!')]
     availability = fields.Selection([('availabe_1','In stock'),
                                ('availabe_2', 'Under the order')],
-                                string = "Availability")
+                                string="Availability")
 
-class category_product(models.Model):
-    _name = 'category.product'
+class category_products(models.Model):
+    _name = 'category.products'
 
-    numb = fields.Char(string="Name")
-    numb1 = fields.Char(string="Description")
+
+    name_products = fields.Char(string="Name")
+    products_description = fields.Char(string="Description")
