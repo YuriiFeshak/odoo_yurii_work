@@ -2,8 +2,8 @@
   <data>
     <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="shop.list">
-      <field name="name">shop list</field>
+    <record model="ir.ui.view" id="shop_list_view">
+      <field name="name">shop.list</field>
       <field name="model">shop.shop</field>
       <field name="arch" type="xml">
         <tree editable="top" default_order="id desc">
@@ -12,37 +12,76 @@
         </tree>
       </field>
     </record>
-
-    <record model="ir.ui.view" id="shop.category_products">
-      <field name="name">category products</field>
+<!--   category products  -->
+    <record model="ir.ui.view" id="shop_category_products_list">
+      <field name="name">category.products.list</field>
       <field name="model">category.products</field>
       <field name="arch" type="xml">
         <tree editable="top" default_order="id desc">
-          <field name="name_products"/>
+          <field name="name"/>
           <field name="products_description"/>
         </tree>
       </field>
     </record>
+<!--   Products-->
+    <record model="ir.ui.view" id="shop_products_list">
+      <field name="name">products.list</field>
+      <field name="model">products.store</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="products_category_id"/>
+          <field name="name"/>
+          <field name="availability_products"/>
+        </tree>
+      </field>
+    </record>
 
-
+    <record model="ir.ui.view" id="shop_products_form">
+      <field name="name">products.form</field>
+      <field name="model">products.store</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="products_category_id"/>
+              <field name="name"/>
+              <field name="availability_products"/>
+            </group>
+            <notebook>
+              <page string="Discriptions">
+                <tree editable="bottom">
+                 <field name="description_text_id"/>
+                </tree>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
 
     <!-- actions opening views on models -->
 
-    <record model="ir.actions.act_window" id="shop.action_window">
-      <field name="name">shop window</field>
+    <record model="ir.actions.act_window" id="shop_action_window">
+      <field name="name">shop</field>
       <field name="res_model">shop.shop</field>
       <field name="view_mode">tree,form</field>
     </record>
-
-    <record model="ir.actions.act_window" id="shop.category_products_action">
-      <field name="name">category products</field>
+<!--action category_products-->
+    <record model="ir.actions.act_window" id="shop_action_category_products">
+      <field name="name">category</field>
       <field name="res_model">category.products</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+<!--action products    -->
+    <record model="ir.actions.act_window" id="shop_action_products">
+      <field name="name">products</field>
+      <field name="res_model">products.store</field>
       <field name="view_mode">tree,form</field>
     </record>
 
     <!-- server action to the one above -->
 
-    <record model="ir.actions.server" id="shop.action_server">
+    <record model="ir.actions.server" id="shop_action_server">
       <field name="name">shop server</field>
       <field name="model_id" ref="model_shop_shop"/>
       <field name="state">code</field>
@@ -58,10 +97,10 @@
 
     <!-- Top menu item -->
 
-    <menuitem name="Shop" id="shop.menu_root" action="shop.action_window"/>
+    <menuitem name="Shop" id="shop.menu_root" action="shop_action_window"/>
     <!-- menu categories -->
 
-    <menuitem name="Category products" id="shop.menu_1" parent="shop.menu_root" action="shop.category_products_action"/>
-
+    <menuitem name="Category products" id="shop.menu_category_products" parent="shop.menu_root" action="shop_action_category_products"/>
+    <menuitem name="Products" id="shop.menu_products" parent="shop.menu_root" action="shop_action_products"/>
   </data>
 </odoo>

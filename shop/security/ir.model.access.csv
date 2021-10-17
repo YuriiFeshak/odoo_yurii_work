@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_shop_shop,shop.shop,model_shop_shop,base.group_user,1,1,1,1
 access_category_products,category.products,model_category_products,base.group_user,1,1,1,1
+access_products.store,products.store,model_products_store,base.group_user,1,1,1,1

@@ -4,7 +4,7 @@ import string
 from odoo import models, fields, api
 from random import randint
 
-class shop(models.Model):
+class Shop(models.Model):
     _name = 'shop.shop'
     _description = 'shop.shop'
 
@@ -21,9 +21,22 @@ class shop(models.Model):
                                ('availabe_2', 'Under the order')],
                                 string="Availability")
 
-class category_products(models.Model):
+class CategoryProducts(models.Model):
     _name = 'category.products'
 
-
-    name_products = fields.Char(string="Name")
+    name = fields.Char(string="Name category products")
     products_description = fields.Char(string="Description")
+    # products_id = fields.Many2one('products', string ="product store")
+
+class Products(models.Model):
+    _name = 'products.store'
+    # _inherit = 'category.products'
+    # products_id = fields.Many2one('category.products', string="product store")
+    products_category_id = fields.Many2one('category.products',  string="Category")
+    name = fields.Char(string="Product name")
+    availability_products = fields.Selection([('availabe_1','In stock'),
+                               ('availabe_2', 'Under the order')],
+                                string="Availability")
+
+    description_text_id = fields.Text(string="Product descriptions")
+
