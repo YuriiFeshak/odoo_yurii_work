@@ -24,15 +24,19 @@ class Shop(models.Model):
 class CategoryProducts(models.Model):
     _name = 'category.products'
 
-    name = fields.Char(string="Name category products")
+    name = fields.Char(string="Сategory products", )
     products_description = fields.Char(string="Description")
     # products_id = fields.Many2one('products', string ="product store")
+    # def default_get(self, fields):
+        # res = super(CategoryProducts, self).default_get(fields)
+        # res['name'] = 'Automotive products'
+        # return res
 
 class Products(models.Model):
     _name = 'products.store'
     # _inherit = 'category.products'
     # products_id = fields.Many2one('category.products', string="product store")
-    products_category_id = fields.Many2one('category.products',  string="Category")
+    products_category_id = fields.Many2one('category.products',  string="Name products")
     name = fields.Char(string="Product name")
     availability_products = fields.Selection([('availabe_1','In stock'),
                                ('availabe_2', 'Under the order')],
