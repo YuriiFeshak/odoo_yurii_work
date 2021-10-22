@@ -47,6 +47,9 @@
               <field name="products_category_id"/>
               <field name="name"/>
               <field name="availability_products"/>
+              <field name="stock_in"/>
+              <field name="stock_out"/>
+              <field name="left_field"/>
             </group>
             <notebook>
               <page string="Discriptions">
