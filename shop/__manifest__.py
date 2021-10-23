@@ -28,6 +28,7 @@
         'data/data.xml',
         'views/views.xml',
         'views/templates.xml',
+        'wizard/add_in_store.xml'
     ],
     # only loaded in demonstration mode
     # 'demo': [

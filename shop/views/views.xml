@@ -42,23 +42,23 @@
       <field name="model">products.store</field>
       <field name="arch" type="xml">
         <form>
-          <sheet>
-            <group>
-              <field name="products_category_id"/>
-              <field name="name"/>
-              <field name="availability_products"/>
-              <field name="stock_in"/>
-              <field name="stock_out"/>
-              <field name="left_field"/>
-            </group>
-            <notebook>
-              <page string="Discriptions">
-                <tree editable="bottom">
-                 <field name="description_text_id"/>
-                </tree>
-              </page>
-            </notebook>
-          </sheet>
+            <sheet>
+              <group>
+                <field name="products_category_id"/>
+                <field name="name"/>
+                <field name="availability_products"/>
+                <field name="stock_in"/>
+                <field name="stock_out"/>
+                <field name="left_field"/>
+              </group>
+              <notebook>
+                <page string="Discriptions">
+                  <tree editable="bottom">
+                   <field name="description_text_id"/>
+                  </tree>
+                </page>
+              </notebook>
+            </sheet>
         </form>
       </field>
     </record>
@@ -97,14 +97,28 @@
         }
       </field>
     </record>
+<!--    Add new action button Add in stock-->
+    <record model="ir.actions.server" id="action_products_store">
+      <field name="name">Add in stock</field>
+      <field name="type">ir.actions.server</field>
+      <field name="model_id" ref="model_products_store"/>
+      <field name="binding_model_id" ref="model_products_store"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          'type': 'ir.actions.act_window',
+                'res_model': 'add.in.store',
+                'view_mode': 'form',
+                'target': 'new'
+        }
+      </field>
+    </record>
 
-
-    <!-- Top menu item -->
 
     <menuitem name="Shop" id="shop.menu_root" action="shop_action_window"/>
     <!-- menu categories -->
 
     <menuitem name="Category products" id="shop.menu_category_products" parent="shop.menu_root" action="shop_action_category_products"/>
-    <menuitem name="Products" id="shop.menu_products" parent="shop.menu_root" action="shop_action_products"/>
+    <menuitem name="Products" id="shop.menu_products_store" parent="shop.menu_root" action="shop_action_products"/>
   </data>
 </odoo>

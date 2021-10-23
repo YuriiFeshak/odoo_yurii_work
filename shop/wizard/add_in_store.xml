@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_add_in_store_wizard_form" model="ir.ui.view">
+        <field name="name">add.in.store.form</field>
+        <field name="model">add.in.store</field>
+        <field name="arch" type="xml">
+            <form string="Add in store">
+                <sheet>
+                    <group>
+                        <field name="up_stock_in"/>
+                        <field name="up_stock_out"/>
+                        <field name="up_left_field"/>
+                    </group>
+                    <footer>
+                        <button string="Add in store" name="update_fields"  type="object"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_add_in_store_wizard" model="ir.actions.act_window">
+        <field name="name">Add in store</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">add.in.store</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_add_in_store_wizard_form"/>
+        <field name="target">new</field>
+
+    </record>
+</odoo>

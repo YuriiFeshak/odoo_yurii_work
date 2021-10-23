@@ -34,7 +34,6 @@ class CategoryProducts(models.Model):
 
 class ProductsStore(models.Model):
     _name = 'products.store'
-    # _inherit = 'category.products'
 
     products_category_id = fields.Many2one('category.products',  string="Name products")
     name = fields.Char(string="Product name")
