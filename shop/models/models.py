@@ -35,7 +35,7 @@ class CategoryProducts(models.Model):
 class ProductsStore(models.Model):
     _name = 'products.store'
 
-    products_category_id = fields.Many2one('category.products',  string="Name products")
+    products_category_id = fields.Many2one('category.products',  string="Products category")
     name = fields.Char(string="Product name")
     availability_products = fields.Selection([('availabe_1','In stock'),
                                ('availabe_2', 'Under the order')],
@@ -53,3 +53,7 @@ class ProductsStore(models.Model):
             self.left_field = self.stock_in - self.stock_out
         else:
             self.left_field = False
+
+
+
+
