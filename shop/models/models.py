@@ -55,5 +55,12 @@ class ProductsStore(models.Model):
             self.left_field = False
 
 
-
+    def add_in_stock_action(self):
+        return {
+                'type': 'ir.actions.act_window',
+                'res_model': 'add.in.store',
+                'view_mode': 'form',
+                'context': {'default_id': self.id},
+                'target': 'new'
+        }
 

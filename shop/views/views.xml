@@ -98,22 +98,15 @@
       </field>
     </record>
 <!--    Add new action button Add in stock-->
-<!--    <record model="ir.actions.server" id="action_products_store">-->
-<!--      <field name="name">Add in stock</field>-->
-<!--      <field name="type">ir.actions.server</field>-->
-<!--      <field name="model_id" ref="model_products_store"/>-->
-<!--      <field name="binding_model_id" ref="model_products_store"/>-->
-<!--      <field name="state">code</field>-->
-<!--      <field name="code">-->
-<!--        action = {-->
-<!--                'type': 'ir.actions.act_window',-->
-<!--                'res_model': 'add.in.store',-->
-<!--                'view_mode': 'form',-->
-<!--                'target': 'new'-->
-<!--        }-->
-<!--      </field>-->
-<!--    </record>-->
-
+    <record model="ir.actions.server" id="action_add_in_stock_wizard">
+      <field name="name">Add in stock</field>
+      <field name="type">ir.actions.server</field>
+      <field name="model_id" ref="model_products_store"/>
+      <field name="binding_model_id" ref="model_products_store"/>
+      <field name="state">code</field>
+      <field name="code">
+            action = records.add_in_stock_action()</field>
+    </record>
 
     <menuitem name="Shop" id="shop.menu_root" action="shop_action_window"/>
     <!-- menu categories -->
