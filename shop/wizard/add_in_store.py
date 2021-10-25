@@ -10,7 +10,7 @@ class AddInStore(models.TransientModel):
 
     up_stock_in = fields.Integer(string='Stock in')
     up_stock_out = fields.Integer(string='Stock Out')
-    up_left_field = fields.Integer(string='Left')
+    up_left_field = fields.Integer(string='Left(Not edited)')
 
     # добавлення даних в поля по кнопці add in store
 
@@ -18,7 +18,6 @@ class AddInStore(models.TransientModel):
         self.env['products.store'].browse(self._context.get('default_id')).update({
             'stock_in': self.up_stock_in,
             'stock_out': self.up_stock_out,
-            'left_field': self.up_left_field
         })
         return True
 
