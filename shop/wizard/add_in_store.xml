@@ -7,12 +7,14 @@
             <form string="Add in store">
                 <sheet>
                     <group>
-                        <field name="up_stock_in"/>
-                        <field name="up_stock_out"/>
-                        <field name="up_left_field"/>
+<!--                        <field name="stock_id" invisible="1"/>-->
+                        <field name="up_stock_in" readonly="0"/>
+
+<!--                        <field name="up_stock_out"/>-->
+<!--                        <field name="up_left_field"/>-->
                     </group>
                     <footer>
-                        <button string="Add in store" name="update_fields"  type="object"/>
+                        <button string="Add in store" name="action_add_value"  type="object"/>
                         <button string="Cancel" class="btn-secondary" special="cancel"/>
                     </footer>
                 </sheet>

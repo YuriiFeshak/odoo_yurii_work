@@ -29,10 +29,11 @@
       <field name="name">products.list</field>
       <field name="model">products.store</field>
       <field name="arch" type="xml">
-        <tree>
+        <tree multi_edit="1">
           <field name="products_category_id"/>
           <field name="name"/>
           <field name="availability_products"/>
+          <field name="description_category"/>
         </tree>
       </field>
     </record>
@@ -47,9 +48,10 @@
                 <field name="products_category_id"/>
                 <field name="name"/>
                 <field name="availability_products"/>
-                <field name="stock_in"/>
-                <field name="stock_out"/>
-                <field name="left_field"/>
+                <field name="stock_in" readonly="1"/>
+                <field name="stock_out" readonly="1"/>
+                <field name="left_field" readonly="1"/>
+                <button string="Massage" name="create_notification" type="object" class="btm-primary"/>
               </group>
               <notebook>
                 <page string="Discriptions">

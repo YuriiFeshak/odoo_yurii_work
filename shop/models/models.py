@@ -24,9 +24,10 @@ class Shop(models.Model):
 class CategoryProducts(models.Model):
     _name = 'category.products'
 
-    name = fields.Char(string="Сategory products", )
+    name = fields.Char(string="Сategory products")
     products_description = fields.Char(string="Description")
 
+    stock_in = fields.Integer(string='Stock in')
     # def default_get(self, fields):
         # res = super(CategoryProducts, self).default_get(fields)
         # res['name'] = 'Automotive products'
@@ -35,16 +36,22 @@ class CategoryProducts(models.Model):
 class ProductsStore(models.Model):
     _name = 'products.store'
 
-    products_category_id = fields.Many2one('category.products',  string="Products category")
+
+    products_category_id = fields.Many2one('category.products', string="Products category")
     name = fields.Char(string="Product name")
+    description_category = fields.Char(related="products_category_id.products_description")
     availability_products = fields.Selection([('availabe_1','In stock'),
                                ('availabe_2', 'Under the order')],
                                 string="Availability")
-
     description_text_id = fields.Text(string="Product descriptions")
-    stock_in = fields.Integer(string='Stock in', readonly=True)
-    stock_out = fields.Integer(string='Stock Out', readonly=True)
+    stock_id = fields.Many2one('add.in.store')
+    stock_in = fields.Integer(string='Stock in',  related='stock_id.up_stock_in')
+    stock_out = fields.Integer(string='Stock Out')
     left_field = fields.Integer(string='Left', readonly=True, compute='_compute_left')
+
+
+    # def write(self, value):
+    #     return super(ProductsStore, self).write(value)
 
     # Розрахунок поля Left
     @api.depends('stock_in', 'stock_out')
@@ -54,7 +61,7 @@ class ProductsStore(models.Model):
         else:
             self.left_field = False
 
-
+    @api.model
     def add_in_stock_action(self):
         return {
                 'type': 'ir.actions.act_window',
@@ -64,3 +71,14 @@ class ProductsStore(models.Model):
                 'target': 'new'
         }
 
+
+    def create_notification(self):
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': 'warning',
+                'message': 'Please select only one product',
+                'sticky': True,
+            }
+        }
