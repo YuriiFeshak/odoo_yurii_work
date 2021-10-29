@@ -50,8 +50,8 @@
                 <field name="availability_products"/>
                 <field name="stock_in" readonly="1"/>
                 <field name="stock_out" readonly="1"/>
-                <field name="left_field" readonly="1"/>
-                <button string="Massage" name="create_notification" type="object" class="btm-primary"/>
+                <field name="stock_left" readonly="1"/>
+<!--                <button string="Massage" name="create_notification" type="object" class="btm-primary"/>-->
               </group>
               <notebook>
                 <page string="Discriptions">

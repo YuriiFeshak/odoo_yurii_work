@@ -9,7 +9,22 @@ class AddInStore(models.Model): # не може бути TransientModel тоді
 
     up_stock_in = fields.Integer(string='Stock in')
     up_stock_out = fields.Integer(string='Stock Out')
-    up_left_field = fields.Integer(string='Left')
+    up_stock_left = fields.Integer(string='Left', compute='_compute_up_stock_left', inverse='_inverse_up_stock_left')
+
+    # Розрахунок поля Left
+    @api.depends('up_stock_in', 'up_stock_out')
+    def _compute_up_stock_left(self):
+        if self.up_stock_in > self.up_stock_out:
+            self.up_stock_left = self.up_stock_in - self.up_stock_out
+        else:
+            self.up_stock_left = False
+
+    def _inverse_up_stock_left(self):
+        if self.up_stock_left > 0:
+            self.up_stock_in = self.up_stock_out + self.up_stock_left
+        else:
+            self.up_stock_in = False
+
 
     # добавлення даних в поля по кнопці add in store
     @api.model

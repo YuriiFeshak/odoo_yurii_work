@@ -8,9 +8,9 @@
                 <sheet>
                     <group>
 <!--                        <field name="stock_id" invisible="1"/>-->
-                        <field name="up_stock_in" readonly="0"/>
+                        <field name="up_stock_in"/>
                         <field name="up_stock_out"/>
-                        <field name="up_left_field" readonly="1"/>
+                        <field name="up_stock_left"/>
                     </group>
                     <footer>
 <!--                        <button string="Add in store" name="action_add_value"  type="object"/>-->

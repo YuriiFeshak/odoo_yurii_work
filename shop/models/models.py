@@ -50,15 +50,8 @@ class ProductsStore(models.Model):
     stock_id = fields.Many2one('add.in.store')
     stock_in = fields.Integer(string='Stock in', related='stock_id.up_stock_in')
     stock_out = fields.Integer(string='Stock Out', related='stock_id.up_stock_out')
-    left_field = fields.Integer(string='Left', readonly=True, compute='_compute_left')
+    stock_left = fields.Integer(string='Left', related='stock_id.up_stock_left')
 
-    # Розрахунок поля Left
-    @api.depends('stock_in', 'stock_out')
-    def _compute_left(self):
-        if self.stock_in > self.stock_out:
-            self.left_field = self.stock_in - self.stock_out
-        else:
-            self.left_field = False
 
     @api.model
     def add_in_stock_action(self):
@@ -69,7 +62,7 @@ class ProductsStore(models.Model):
                 'context': {'default_id': self.id, # потрібно щоб працювала можливість добавляти нові значення в полі
                             'default_up_stock_in': self.stock_in,  #підзавантаження значення в полі
                             'default_up_stock_out': self.stock_out,
-                            'default_up_left_field': self.left_field,
+                            'default_up_stock_left': self.stock_left,
                             },
                 'target': 'new'
         }
