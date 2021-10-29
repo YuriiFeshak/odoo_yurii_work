@@ -107,7 +107,12 @@
       <field name="binding_model_id" ref="model_products_store"/>
       <field name="state">code</field>
       <field name="code">
-            action = records.add_in_stock_action()</field>
+        for i in records:
+          if len(records) == 1:
+              action = i.add_in_stock_action()
+          else:
+              action = i.create_notification()
+      </field>
     </record>
 
     <menuitem name="Shop" id="shop.menu_root" action="shop_action_window"/>

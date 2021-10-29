@@ -23,6 +23,7 @@ class Shop(models.Model):
 
 class CategoryProducts(models.Model):
     _name = 'category.products'
+    _description = 'category products'
 
     name = fields.Char(string="Сategory products")
     products_description = fields.Char(string="Description")
@@ -35,6 +36,8 @@ class CategoryProducts(models.Model):
 
 class ProductsStore(models.Model):
     _name = 'products.store'
+    _description = 'products store'
+
 
 
     products_category_id = fields.Many2one('category.products', string="Products category")
@@ -45,13 +48,9 @@ class ProductsStore(models.Model):
                                 string="Availability")
     description_text_id = fields.Text(string="Product descriptions")
     stock_id = fields.Many2one('add.in.store')
-    stock_in = fields.Integer(string='Stock in',  related='stock_id.up_stock_in')
-    stock_out = fields.Integer(string='Stock Out')
+    stock_in = fields.Integer(string='Stock in', related='stock_id.up_stock_in')
+    stock_out = fields.Integer(string='Stock Out', related='stock_id.up_stock_out')
     left_field = fields.Integer(string='Left', readonly=True, compute='_compute_left')
-
-
-    # def write(self, value):
-    #     return super(ProductsStore, self).write(value)
 
     # Розрахунок поля Left
     @api.depends('stock_in', 'stock_out')
@@ -67,10 +66,13 @@ class ProductsStore(models.Model):
                 'type': 'ir.actions.act_window',
                 'res_model': 'add.in.store',
                 'view_mode': 'form',
-                'context': {'default_id': self.id},
+                'context': {'default_id': self.id, # потрібно щоб працювала можливість добавляти нові значення в полі
+                            'default_up_stock_in': self.stock_in,  #підзавантаження значення в полі
+                            'default_up_stock_out': self.stock_out,
+                            'default_up_left_field': self.left_field,
+                            },
                 'target': 'new'
         }
-
 
     def create_notification(self):
         return {
