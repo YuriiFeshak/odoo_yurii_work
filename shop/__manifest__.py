@@ -26,6 +26,7 @@
     'data': [
         'security/ir.model.access.csv',
         'data/data.xml',
+        'data/cron.xml',
         'views/views.xml',
         'views/templates.xml',
         'wizard/add_in_store.xml'

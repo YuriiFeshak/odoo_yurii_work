@@ -3,6 +3,8 @@
 
 from odoo import models, fields, api
 
+
+
 class AddInStore(models.Model): # не може бути TransientModel тоді не працює many2one
     _name = "add.in.store"
     _description = "add in store"
@@ -10,6 +12,8 @@ class AddInStore(models.Model): # не може бути TransientModel тоді
     up_stock_in = fields.Integer(string='Stock in')
     up_stock_out = fields.Integer(string='Stock Out')
     up_stock_left = fields.Integer(string='Left', compute='_compute_up_stock_left', inverse='_inverse_up_stock_left')
+
+
 
     # Розрахунок поля Left
     @api.depends('up_stock_in', 'up_stock_out')
